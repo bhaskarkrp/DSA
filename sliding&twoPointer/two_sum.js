@@ -5,31 +5,30 @@ function runProgram(input) {
   input = input.trim().split("\n");
   var t = +input[0];
   var line = 1;
-  for(var i = 0; i < t; i++) {
-      var [N, target] = input[line].trim().split(" ").map(Number);
-      line++;
-      var arr = input[line].trim().split(" ").map(Number);
-      line++;
+  for (var i = 0; i < t; i++) {
+    var [N, target] = input[line].trim().split(" ").map(Number);
+    line++;
+    var arr = input[line].trim().split(" ").map(Number);
+    line++;
     //   console.log(N, target, arr);
     console.log(find(N, target, arr));
   }
 }
 
 function find(N, target, arr) {
-    var l = 0;
-    var r = N-1;
-    while(l < r) {
-        if(arr[l] + arr[r] < target){
-            l++;
-        }else if(arr[l] + arr[r] > target){
-            r--;
-        }else{
-            return [l, r];
-        }
+  var l = 0;
+  var r = N - 1;
+  while (l < r) {
+    if (arr[l] + arr[r] < target) {
+      l++;
+    } else if (arr[l] + arr[r] > target) {
+      r--;
+    } else {
+      return [l, r];
     }
-    return [-1,-1];
+  }
+  return [-1, -1];
 }
-
 
 if (process.env.USER === "bhaskar") {
   runProgram(`3
